@@ -51,7 +51,7 @@ Localstack es una librería de python que permite simular entornos cloud de aws,
 ___
 ### ¿Que es docker?
 ___
-![Imagen](imagenes/localstack_logo.png)
+![Imagen](imagenes/docker-banner.png)
 
 Docker es uno de los proyectos más conocidos y utilizados en temas de visualización. Lejos de ser un sistema operativo como tal, esta plataforma de código abierto hace uso de las funciones de aislamiento de recursos del kernel de Linux para poder dar lugar a contenedores independientes, dentro de los cuales se ejecutará una única aplicación con sus respectivas dependencias, pero funcionando siempre con un único kernel, el de la máquina real, en lugar de virtualizar uno por cada contenedor o máquina virtual.
 ___

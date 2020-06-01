@@ -78,47 +78,13 @@ try {
 }
 catch (org.jenkinsci.plugins.workflow.steps.FlowInterruptedException flowError) {
   currentBuild.result = 'ABORTED'
-
-  stage('notification'){
-    slackSend baseUrl: 'https://hooks.slack.com/services/', 
-    channel: '#pipeline_jenkins', 
-    color: 'good', 
-    message: 'El pipeline jenkis-terraform-localstack corrio exitosamente!', 
-    teamDomain: 'javahomecloud', 
-    tokenCredentialId: 'fed521d5-2e13-4ee5-849d-c9d9f6780251', 
-    username: 'Jenkins'
-  }
-
 }
 catch (err) {
   currentBuild.result = 'FAILURE'
-
-  stage('notification'){
-    slackSend baseUrl: 'https://hooks.slack.com/services/', 
-    channel: '#pipeline_jenkins', 
-    color: 'warning', 
-    message: 'Una o varias instancias del pipeline fallaron.', 
-    teamDomain: 'javahomecloud', 
-    tokenCredentialId: 'fed521d5-2e13-4ee5-849d-c9d9f6780251',
-    username: 'Jenkins'
-  }
-
-
   throw err
 }
 finally {
   if (currentBuild.result == 'SUCCESS') {
     currentBuild.result = 'SUCCESS'
-
-    stage('notification'){
-      slackSend baseUrl: 'https://hooks.slack.com/services/', 
-      channel: '#pipeline_jenkins',
-      color: 'good', 
-      message: 'El pipeline jenkis-terraform-localstack corrio exitosamente!', 
-      teamDomain: 'javahomecloud', 
-      tokenCredentialId: 'fed521d5-2e13-4ee5-849d-c9d9f6780251',
-      username: 'Jenkins'
-    }
-
   }
 }
